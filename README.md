@@ -47,6 +47,8 @@ as an argument:
 ```
 mvn clean verify -Dbrowser=chrome -Dwebdriver.chrome.driver=c:\path\to\chromedriver.exe
 ```
+mvn clean verify -Dbrowser=chrome -Dwebdriver.chrome.driver=C:\Users\aseverin\IdeaProjects\frameworkium-examples\src\test\resources\geckodriver.exe
+
 
 For Firefox 48 and above, [geckodriver][geckodriver] needs to be on your path or specified
 as an argument:
