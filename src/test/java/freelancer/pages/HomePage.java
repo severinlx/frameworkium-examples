@@ -6,21 +6,25 @@ import com.frameworkium.core.ui.pages.BasePage;
 import com.frameworkium.core.ui.pages.PageFactory;
 import github.pages.components.HeaderComponent;
 import io.qameta.allure.Step;
+import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.Button;
 
-public class HomePage extends BasePage<github.pages.HomePage> {
-
+public class HomePage extends BasePage<freelancer.pages.HomePage> {
+    @Name("Login Button")
     @Visible
-    @Name("Header")
-    private HeaderComponent header;
+    @FindBy(xpath = "//nav[@class='nav-top pull-right']//a[text() = 'Login']")
+    private Button loginNavigationBTN;
 
-    @Step("Navigate to the Github homepage")
-    public static github.pages.HomePage open() {
-        return PageFactory.newInstance(github.pages.HomePage.class, "https://github.com");
+    @Step("Navigate to the freelancer homepage")
+    public static freelancer.pages.HomePage open() {
+        return PageFactory.newInstance(freelancer.pages.HomePage.class, "http://www.freelance.de");
     }
 
-    public HeaderComponent theHeader() {
-        return header;
+    @Step("Navigate to LoginPage")
+    public LoginPage goToLogin() {
+        loginNavigationBTN.click();
+        return PageFactory.newInstance(LoginPage.class);
     }
 }
 
